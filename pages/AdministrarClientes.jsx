@@ -355,7 +355,7 @@ function saveUpdateBank () {
                                 <input type="text" name={"DIRECCION"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank["DIRECCION"] && userDB.bank["DIRECCION"]}/>
                             </div>
                         </div>
-<Button style='buttonPrimary'>
+<Button style='buttonSecondary'>
                             Datos de la empresa
                         </Button>
                     </div>
