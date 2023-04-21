@@ -362,7 +362,7 @@ writeUserData(`users/bank/`, obj, setUserSuccess)
                                 <input type="text" name={"DIRECCION"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.direction && userDB.bank.direccion}/>
                             </div>
                         </div>
-                    <Button style='buttonSecondary'>
+                        <Button style='buttonSecondary'>
                             Datos de la empresa
                         </Button>
                     </div>
