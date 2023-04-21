@@ -233,7 +233,7 @@
 .items div :nth-child(n){
   width: 100%;
 }
-.firstItems {
+.firstItems :nth-child(n) {
 color: white;
 background-color: #294B98;
 }
