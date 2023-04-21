@@ -234,7 +234,7 @@
   width: 100%;
 }
 .firstItems label {
-display: inline-block;
+display: flex;
 width: 50%;
 color: white;
 background-color: #294B98;
