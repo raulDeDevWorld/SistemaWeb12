@@ -315,7 +315,9 @@ const [bank, setBank] = useState(false)
 
 
 
- { bank && <div className={style.subtitle}>DATOS BANCARIOS</div>
+ { bank && <div className={style.formContainer}>
+
+ <div className={style.subtitle}>DATOS BANCARIOS</div>
                     <br />
                     <div className={style.containerFirstItems}>
 
@@ -354,6 +356,7 @@ const [bank, setBank] = useState(false)
                             </div>
                         </div>
                     </div>
+</div>
 }
                 {success == 'save' && <Success>Correcto</Success>}
                 {success == 'repeat' && <Error>Verifica e intenta de nuevo</Error>}
