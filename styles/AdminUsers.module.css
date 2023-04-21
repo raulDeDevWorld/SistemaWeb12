@@ -237,7 +237,10 @@
 color: white;
 background-color: #294B98;
 }
-
+.firstItems input {
+color: white;
+background-color: #294B98;
+}
 
 @media (max-width: 750px) {
   .form {
