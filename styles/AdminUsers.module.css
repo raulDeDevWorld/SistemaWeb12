@@ -234,6 +234,7 @@
   width: 100%;
 }
 .firstItems label {
+display: block;
 width: 50%;
 color: white;
 background-color: #294B98;
