@@ -234,10 +234,12 @@
   width: 100%;
 }
 .firstItems label {
+width: 50%;
 color: white;
 background-color: #294B98;
 }
 .firstItems input {
+width: 50%;
 color: white;
 background-color: #294B98;
 }
