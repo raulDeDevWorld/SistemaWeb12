@@ -149,14 +149,14 @@ const [bank, setBank] = useState(false)
 
 function saveUpdateBank () {
        let obj = {
-            banco: pdfData['AD-BANCO'] ? pdfData['AD-BANCO'] : userDB.bank["DIRECCION"] ,
-            direccionDeBanco: pdfData['AD-DIRECCION DE BANCO"'] ? pdfData['AD-DIRECCION DE BANCO"'] : userDB.bank["DIRECCION"] ,
-            codigoSWIFT: pdfData['AD-CODIGO SWIFT'] ? pdfData['AD-CODIGO SWIFT'] : userDB.bank["DIRECCION"] ,
-            cuentaEnBS: pdfData['AD-NUMERO DE CUENTA EN BS'] ? pdfData['AD-NUMERO DE CUENTA EN BS'] : userDB.bank["DIRECCION"] ,
-            cuentaEnUSD: pdfData['AD-NUMERO DE CUENTA EN USD'] ? pdfData['AD-NUMERO DE CUENTA EN USD'] : userDB.bank["DIRECCION"],
-            tipoDeCuenta: pdfData['AD-TIPO DE CUENTA'] ? pdfData['AD-TIPO DE CUENTA'] : userDB.bank["DIRECCION"],
-            nombre: pdfData['AD-NOMBRE2'] ? pdfData['AD-NOMBRE2'] : userDB.bank["DIRECCION"],
-            direction: pdfData['AD-DIRECTION'] ? pdfData['AD-DIRECTION'] : userDB.bank["DIRECCION"] 
+            banco: pdfData['AD-BANCO'] ? pdfData['AD-BANCO'] : userDB.bank.banco ,
+            direccionDeBanco: pdfData['AD-DIRECCION DE BANCO"'] ? pdfData['AD-DIRECCION DE BANCO"'] : userDB.bank.direccionDeBanco ,
+            codigoSWIFT: pdfData['AD-CODIGO SWIFT'] ? pdfData['AD-CODIGO SWIFT'] : userDB.bank.codigoSWFIT,
+            cuentaEnBS: pdfData['AD-NUMERO DE CUENTA EN BS'] ? pdfData['AD-NUMERO DE CUENTA EN BS'] : userDB.bank.cuentaEnBS,
+            cuentaEnUSD: pdfData['AD-NUMERO DE CUENTA EN USD'] ? pdfData['AD-NUMERO DE CUENTA EN USD'] : userDB.bank.cuentaEnUSD,
+            tipoDeCuenta: pdfData['AD-TIPO DE CUENTA'] ? pdfData['AD-TIPO DE CUENTA'] : userDB.bank.tipoDeCuenta,
+            nombre2: pdfData['AD-NOMBRE2'] ? pdfData['AD-NOMBRE2'] : userDB.bank.nombre2,
+            direccion: pdfData['AD-DIRECTION'] ? pdfData['AD-DIRECTION'] : userDB.bank.direccion
         }
 
 writeUserData(`users/bank/`, obj, setUserSuccess)
@@ -365,7 +365,7 @@ writeUserData(`users/bank/`, obj, setUserSuccess)
                             </div>
                             <div>
                                 <label htmlFor="">DIRECCION</label>
-                                <input type="text" name={"DIRECCION"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.direction && userDB.bank.direction}/>
+                                <input type="text" name={"DIRECCION"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.direction && userDB.bank.direccion}/>
                             </div>
                         </div>
 <Button style='buttonSecondary'>
