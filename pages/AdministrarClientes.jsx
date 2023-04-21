@@ -60,7 +60,7 @@ function Users() {
         setRol(userDB.users[item].rol)
         setMode('edit')
         setItemSelect(userDB.users[item])
-setViewForm(true)
+        setViewForm(true)
     }
     function editRol(data) {
         setRol(data)
@@ -68,7 +68,7 @@ setViewForm(true)
     function editConfirm() {
         writeUserData(`users/${itemSelect}/`, { rol, }, setUserSuccess)
         getData(`/`, setUserData)
-setViewForm(false)
+        setViewForm(false)
     }
 
     function x() {
@@ -91,37 +91,36 @@ setViewForm(false)
     function save(e) {
         e.preventDefault()
 
-if ( pdfData['AD-NOMBRE'] &&
- pdfData['AD-CORREO'] &&
- pdfData['AD-EMPRESA'] &&
- pdfData['AD-TELEFONO'] &&
- pdfData['AD-CARGO'] &&
- pdfData['AD-CIUDAD'] &&
- pdfData['AD-DNI'] )
-{
-        let obj = {
-            nombre: pdfData['AD-NOMBRE'] ? pdfData['AD-NOMBRE'] : null,
-            correo: pdfData['AD-CORREO'] ? pdfData['AD-CORREO'] : null,
-            empresa: pdfData['AD-EMPRESA'] ? pdfData['AD-EMPRESA'] : null,
-            telefono: pdfData['AD-TELEFONO'] ? pdfData['AD-TELEFONO'] : null,
-            cargo: pdfData['AD-CARGO'] ? pdfData['AD-CARGO'] : null,
-            ciudad: pdfData['AD-CIUDAD'] ? pdfData['AD-CIUDAD'] : null,
-            ci: pdfData['AD-DNI'] ? pdfData['AD-DNI'] : null
+        if (pdfData['AD-NOMBRE'] &&
+            pdfData['AD-CORREO'] &&
+            pdfData['AD-EMPRESA'] &&
+            pdfData['AD-TELEFONO'] &&
+            pdfData['AD-CARGO'] &&
+            pdfData['AD-CIUDAD'] &&
+            pdfData['AD-DNI']) {
+            let obj = {
+                nombre: pdfData['AD-NOMBRE'] ? pdfData['AD-NOMBRE'] : null,
+                correo: pdfData['AD-CORREO'] ? pdfData['AD-CORREO'] : null,
+                empresa: pdfData['AD-EMPRESA'] ? pdfData['AD-EMPRESA'] : null,
+                telefono: pdfData['AD-TELEFONO'] ? pdfData['AD-TELEFONO'] : null,
+                cargo: pdfData['AD-CARGO'] ? pdfData['AD-CARGO'] : null,
+                ciudad: pdfData['AD-CIUDAD'] ? pdfData['AD-CIUDAD'] : null,
+                ci: pdfData['AD-DNI'] ? pdfData['AD-DNI'] : null
 
+            }
+
+            let rute = obj.ci
+
+
+            writeUserData(`users/${rute}/`, obj, setUserSuccess)
+        } else {
+            setUserSuccess('Complete')
         }
-
-        let rute = obj.ci
-
-
-        writeUserData(`users/${rute}/`, obj, setUserSuccess)
-    } else {
-setUserSuccess('Complete')
-}
-}
+    }
 
 
 
-function saveUpdate(e) {
+    function saveUpdate(e) {
         e.preventDefault()
 
 
@@ -140,9 +139,11 @@ function saveUpdate(e) {
 
 
         writeUserData(`users/${rute}/`, obj, setUserSuccess)
-}
+    }
 
+    function redirect() {
 
+    }
 
 
     useEffect(() => {
@@ -162,7 +163,18 @@ function saveUpdate(e) {
                     <div className={style.containerIMG}>
                         <Image src="/logo.svg" width="350" height="250" alt="User" />
                     </div>
-                    <input className={style.filter} onChange={handlerOnChange} placeholder='Buscar Por CI' />
+                    <div className={style.containerButtons}>
+                        <input className={style.filter} onChange={handlerOnChange} placeholder='Buscar Por CI' />
+
+                        <Button style='buttonTransparent' click={redirect}>
+                            Clientes
+                        </Button>
+
+                        <Button style='buttonTransparent' click={redirect}>
+                            Datos de la empresa
+                        </Button>
+                    </div>
+
 
                     {userDB && userDB.users && <ul className={style.list}>
                         {Object.keys(userDB.users).map((item, i) => {
@@ -202,50 +214,50 @@ function saveUpdate(e) {
 
                 </main>}
                 {itemSelect !== '' && mode == 'remove' && <Modal mode={mode} click={x} confirm={removeConfirm} text={`Estas por eliminar a: ${userDB.users[itemSelect].correo}`}></Modal>}
-                {viewForm && itemSelect !== '' && mode == 'edit' && 
-                
-                <div className={style.formContainer}>
+                {viewForm && itemSelect !== '' && mode == 'edit' &&
 
-                <form className={style.form} onSubmit={saveUpdate}>
-                    <span onClick={handlerForm} className={style.x}>X</span>
-                    <div className={style.subtitle}>DATOS DE CLIENTE</div>
-                    <br />
-                    <div className={style.items}>
-                        <div>
-                            <label htmlFor="">NOMBRE</label>
-                            <input type="text" name={"NOMBRE"} onChange={handleEventChange} defaultValue={itemSelect['nombre']}/>
-                        </div>
-                        <div>
-                            <label htmlFor="">CORREO</label>
-                            <input type="text" name={"CORREO"} onChange={handleEventChange} defaultValue={itemSelect['correo']}/>
-                        </div>
-                        <div>
-                            <label htmlFor="">EMPRESA</label>
-                            <input type="text" name={"EMPRESA"} onChange={handleEventChange} defaultValue={itemSelect['empresa']}/>
-                        </div>
-                        <div>
-                            <label htmlFor="">TELEFONO</label>
-                            <input type="text" name={"TELEFONO"} onChange={handleEventChange} defaultValue={itemSelect['telefono']}/>
-                        </div>
-                        <div>
-                            <label htmlFor="">CARGO</label>
-                            <input type="text" name={"CARGO"} onChange={handleEventChange} defaultValue={itemSelect['cargo']}/>
-                        </div>
+                    <div className={style.formContainer}>
 
-                        <div>
-                            <label htmlFor="">CIUDAD</label>
-                            <input type="text" name={"CIUDAD"} onChange={handleEventChange} defaultValue={itemSelect['ciudad']}/>
-                        </div>
-                        <div>
-                            <label htmlFor="">CI</label>
-                            <input type="text" name={"DNI"} onChange={handleEventChange} value={itemSelect['ci']}/>
-                        </div>
+                        <form className={style.form} onSubmit={saveUpdate}>
+                            <span onClick={handlerForm} className={style.x}>X</span>
+                            <div className={style.subtitle}>DATOS DE CLIENTE</div>
+                            <br />
+                            <div className={style.items}>
+                                <div>
+                                    <label htmlFor="">NOMBRE</label>
+                                    <input type="text" name={"NOMBRE"} onChange={handleEventChange} defaultValue={itemSelect['nombre']} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">CORREO</label>
+                                    <input type="text" name={"CORREO"} onChange={handleEventChange} defaultValue={itemSelect['correo']} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">EMPRESA</label>
+                                    <input type="text" name={"EMPRESA"} onChange={handleEventChange} defaultValue={itemSelect['empresa']} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">TELEFONO</label>
+                                    <input type="text" name={"TELEFONO"} onChange={handleEventChange} defaultValue={itemSelect['telefono']} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">CARGO</label>
+                                    <input type="text" name={"CARGO"} onChange={handleEventChange} defaultValue={itemSelect['cargo']} />
+                                </div>
 
+                                <div>
+                                    <label htmlFor="">CIUDAD</label>
+                                    <input type="text" name={"CIUDAD"} onChange={handleEventChange} defaultValue={itemSelect['ciudad']} />
+                                </div>
+                                <div>
+                                    <label htmlFor="">CI</label>
+                                    <input type="text" name={"DNI"} onChange={handleEventChange} value={itemSelect['ci']} />
+                                </div>
+
+                            </div>
+                            <br />
+                            <Button style='buttonSecondary' >Guardar</Button>
+                        </form>
                     </div>
-                    <br />
-                    <Button style='buttonSecondary' >Guardar</Button>
-                </form>
-            </div>
                 }
                 {viewForm && itemSelect == '' &&
 

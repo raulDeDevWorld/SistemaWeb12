@@ -36,7 +36,12 @@
   color: white;
   text-align: center;
 }
-
+.containerButtons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
 .list {
   position: relative;
   min-height: 380px;
