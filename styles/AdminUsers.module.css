@@ -235,6 +235,8 @@
 }
 .firstItems label {
 display: flex;
+justify-content: left;
+align-items: center;
 width: 50%;
 color: white;
 background-color: #294B98;
