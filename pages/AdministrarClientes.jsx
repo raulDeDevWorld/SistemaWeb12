@@ -316,7 +316,7 @@ const [bank, setBank] = useState(false)
 
 
  { bank && <div className={style.formContainer}>
-
+<form className={style.form} onSubmit={saveUpdate}>
  <div className={style.subtitle}>DATOS BANCARIOS</div>
                     <br />
 <span onClick={handlerForm} className={style.x}>X</span>
@@ -357,6 +357,7 @@ const [bank, setBank] = useState(false)
                             </div>
                         </div>
                     </div>
+</form>
 </div>
 }
                 {success == 'save' && <Success>Correcto</Success>}
