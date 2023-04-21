@@ -151,13 +151,17 @@ function saveUpdateBank () {
        let obj = {
             banco: pdfData['AD-BANCO'] ? pdfData['AD-BANCO'] : userDB.bank["DIRECCION"] ,
             direccionDeBanco: pdfData['AD-DIRECCION DE BANCO"'] ? pdfData['AD-DIRECCION DE BANCO"'] : userDB.bank["DIRECCION"] ,
-            condigoSWIFT: pdfData['AD-CODIGO SWIFT'] ? pdfData['AD-CODIGO SWIFT'] : userDB.bank["DIRECCION"] ,
+            codigoSWIFT: pdfData['AD-CODIGO SWIFT'] ? pdfData['AD-CODIGO SWIFT'] : userDB.bank["DIRECCION"] ,
             cuentaEnBS: pdfData['AD-NUMERO DE CUENTA EN BS'] ? pdfData['AD-NUMERO DE CUENTA EN BS'] : userDB.bank["DIRECCION"] ,
             cuentaEnUSD: pdfData['AD-NUMERO DE CUENTA EN USD'] ? pdfData['AD-NUMERO DE CUENTA EN USD'] : userDB.bank["DIRECCION"],
             tipoDeCuenta: pdfData['AD-TIPO DE CUENTA'] ? pdfData['AD-TIPO DE CUENTA'] : userDB.bank["DIRECCION"],
             nombre: pdfData['AD-NOMBRE2'] ? pdfData['AD-NOMBRE2'] : userDB.bank["DIRECCION"],
             direction: pdfData['AD-DIRECTION'] ? pdfData['AD-DIRECTION'] : userDB.bank["DIRECCION"] 
         }
+
+writeUserData(`users/bank/`, obj, setUserSuccess)
+    }
+
     }
 
     useEffect(() => {
@@ -333,35 +337,35 @@ function saveUpdateBank () {
                         <div className={style.firstItems}>
                             <div>
                                 <label htmlFor="">BANCO</label>
-                                <input type="text" name={"BANCO"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank["BANCO"] && userDB.bank["BANCO"]}/>
+                                <input type="text" name={"BANCO"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.banco && userDB.bank.banco}/>
                             </div>
                             <div>
                                 <label htmlFor="">DIRECCION DE BANCO</label>
-                                <input type="text" name={"DIRECCION DE BANCO"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank["DIRECCION DE BANCO"] && userDB.bank["DIRECCION DE BANCO"]}/>
+                                <input type="text" name={"DIRECCION DE BANCO"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.direccionDeBanco && userDB.bank.direccionDeBanco}/>
                             </div>
                             <div>
                                 <label htmlFor="">CODIGO SWIFT</label>
-                                <input type="text" name={"CODIGO SWIFT"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank["CODIGO SWIFT"] && userDB.bank["CODIGO SWIFT"]}/>
+                                <input type="text" name={"CODIGO SWIFT"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.codigoSWIFT && userDB.bank.codigoSWFIT}/>
                             </div>
                             <div>
                                 <label htmlFor="">NUMERO DE CUENTA EN BS</label>
-                                <input type="text" name={"NUMERO DE CUENTA EN BS"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank["NUMERO DE CUENTA EN BS"] && userDB.bank["NUMERO DE CUENTA EN BS"]} />
+                                <input type="text" name={"NUMERO DE CUENTA EN BS"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.cuentaEnBS && userDB.bank.cuentaEnBS} />
                             </div>
                             <div>
                                 <label htmlFor="">NUMERO DE CUENTA EN USD</label>
-                                <input type="text" name={"NUMERO DE CUENTA EN USD"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank["NUMERO DE CUENTA EN USD"] && userDB.bank["NUMERO DE CUENTA EN USD"]}/>
+                                <input type="text" name={"NUMERO DE CUENTA EN USD"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.cuentaEnUSD && userDB.bank.cuentaEnUSD}/>
                             </div>
                             <div>
                                 <label htmlFor="">TIPO DE CUENTA</label>
-                                <input type="text" name={"TIPO DE CUENTA"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank["TIPO DE CUENTA"] && userDB.bank["TIPO DE CUENTA"]}/>
+                                <input type="text" name={"TIPO DE CUENTA"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.tipoDeCuenta && userDB.bank.tipoDeCuenta}/>
                             </div>
                             <div>
                                 <label htmlFor="">NOMBRE</label>
-                                <input type="text" name={"NOMBRE2"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank["NOMBRE2"] && userDB.bank["NOMBRE2"]}/>
+                                <input type="text" name={"NOMBRE2"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.nombre2 && userDB.bank.nombre2}/>
                             </div>
                             <div>
                                 <label htmlFor="">DIRECCION</label>
-                                <input type="text" name={"DIRECCION"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank["DIRECCION"] && userDB.bank["DIRECCION"]}/>
+                                <input type="text" name={"DIRECCION"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank.direction && userDB.bank.direction}/>
                             </div>
                         </div>
 <Button style='buttonSecondary'>
