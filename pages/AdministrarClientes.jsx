@@ -144,7 +144,7 @@ const [bank, setBank] = useState(false)
     }
 
     function redirect() {
-
+       setBank(!bank)
     }
 
 
@@ -319,6 +319,7 @@ const [bank, setBank] = useState(false)
 
  <div className={style.subtitle}>DATOS BANCARIOS</div>
                     <br />
+<span onClick={handlerForm} className={style.x}>X</span>
                     <div className={style.containerFirstItems}>
 
                         <div className={style.firstItems}>
