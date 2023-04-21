@@ -163,8 +163,8 @@ function Users() {
                     <div className={style.containerIMG}>
                         <Image src="/logo.svg" width="350" height="250" alt="User" />
                     </div>
+
                     <div className={style.containerButtons}>
-                        <input className={style.filter} onChange={handlerOnChange} placeholder='Buscar Por CI' />
 
                         <Button style='buttonTransparent' click={redirect}>
                             Clientes
@@ -174,6 +174,9 @@ function Users() {
                             Datos de la empresa
                         </Button>
                     </div>
+
+                    <br />
+                    <input className={style.filter} onChange={handlerOnChange} placeholder='Buscar Por CI' />
 
 
                     {userDB && userDB.users && <ul className={style.list}>
@@ -302,8 +305,53 @@ function Users() {
                             <br />
                             <Button style='buttonSecondary' >Guardar</Button>
                         </form>
+
+
                     </div>
                 }
+
+
+
+
+ <div className={style.subtitle}>DATOS BANCARIOS</div>
+                    <br />
+                    <div className={style.containerFirstItems}>
+
+                        <div className={style.firstItems}>
+                            <div>
+                                <label htmlFor="">BANCO</label>
+                                <input type="text" name={"BANCO"} onChange={handleEventChange} />
+                            </div>
+                            <div>
+                                <label htmlFor="">DIRECCION DE BANCO</label>
+                                <input type="text" name={"DIRECCION DE BANCO"} onChange={handleEventChange} />
+                            </div>
+                            <div>
+                                <label htmlFor="">CODIGO SWIFT</label>
+                                <input type="text" name={"CODIGO SWIFT"} onChange={handleEventChange} />
+                            </div>
+                            <div>
+                                <label htmlFor="">NUMERO DE CUENTA EN BS</label>
+                                <input type="text" name={"NUMERO DE CUENTA EN BS"} onChange={handleEventChange} />
+                            </div>
+                            <div>
+                                <label htmlFor="">NUMERO DE CUENTA EN USD</label>
+                                <input type="text" name={"NUMERO DE CUENTA EN USD"} onChange={handleEventChange} />
+                            </div>
+                            <div>
+                                <label htmlFor="">TIPO DE CUENTA</label>
+                                <input type="text" name={"TIPO DE CUENTA"} onChange={handleEventChange} />
+                            </div>
+                            <div>
+                                <label htmlFor="">NOMBRE</label>
+                                <input type="text" name={"NOMBRE2"} onChange={handleEventChange} />
+                            </div>
+                            <div>
+                                <label htmlFor="">DIRECCION</label>
+                                <input type="text" name={"DIRECCION"} onChange={handleEventChange} />
+                            </div>
+                        </div>
+                    </div>
                 {success == 'save' && <Success>Correcto</Success>}
                 {success == 'repeat' && <Error>Verifica e intenta de nuevo</Error>}
             </div>

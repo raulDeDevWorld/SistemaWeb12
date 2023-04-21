@@ -39,6 +39,7 @@
 
 .buttonTransparent {
     height: 35px;
+    max-width: 200px;
     color: rgb(0, 0, 0);
     background-color: #00000000;
     border: 2px solid #7d99da;

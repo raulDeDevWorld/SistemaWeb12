@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import Image from 'next/image'
-import {   useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useUser } from '../context/Context'
 import { WithAuth } from '../HOCs/WithAuth'
 import Layout from '../layout/Layout'
@@ -60,7 +60,7 @@ function CotizacionTerrestre() {
         const newOtrosGastos = otrosGastos.map(i => i)
         newOtrosGastos.pop()
         if (word == "pluss") {
-            setUserPdfData({ ...pdfData, tarifa, otrosGastos: [...otrosGastos, ...[""]],  incluye, excluye })
+            setUserPdfData({ ...pdfData, tarifa, otrosGastos: [...otrosGastos, ...[""]], incluye, excluye })
             setOtrosGastos([...otrosGastos, ...[""]])
         } else {
             setUserPdfData({ ...pdfData, tarifa, otrosGastos: newOtrosGastos, incluye, excluye })
@@ -73,10 +73,10 @@ function CotizacionTerrestre() {
         word == "pluss" ? setIncluye([...incluye, ...[""]]) : setIncluye(newIncluye)
 
         if (word == "pluss") {
-            setUserPdfData({ ...pdfData, tarifa, otrosGastos,  incluye: [...incluye, ...[""]], excluye })
+            setUserPdfData({ ...pdfData, tarifa, otrosGastos, incluye: [...incluye, ...[""]], excluye })
             setIncluye([...incluye, ...[""]])
         } else {
-            setUserPdfData({ ...pdfData, tarifa,  otrosGastos, incluye: newIncluye, excluye })
+            setUserPdfData({ ...pdfData, tarifa, otrosGastos, incluye: newIncluye, excluye })
             setIncluye(newIncluye)
         }
     }
@@ -85,10 +85,10 @@ function CotizacionTerrestre() {
         newExcluye.pop()
         word == "pluss" ? setExcluye([...excluye, ...[""]]) : setExcluye(newExcluye)
         if (word == "pluss") {
-            setUserPdfData({ ...pdfData, tarifa, otrosGastos,  incluye, excluye: [...excluye, ...[""]]})
+            setUserPdfData({ ...pdfData, tarifa, otrosGastos, incluye, excluye: [...excluye, ...[""]] })
             setExcluye([...excluye, ...[""]])
         } else {
-            setUserPdfData({ ...pdfData, tarifa,  otrosGastos, incluye, excluye: newExcluye })
+            setUserPdfData({ ...pdfData, tarifa, otrosGastos, incluye, excluye: newExcluye })
             setExcluye(newExcluye)
         }
     }
@@ -221,11 +221,11 @@ function CotizacionTerrestre() {
                         <div className={style.firstItems}>
                             <div>
                                 <label htmlFor="">NOTA DE COBRANZA NO</label>
-                                <input type="text" name={"NOTA DE COBRANZA NO"} onChange={handleEventChange} defaultValue={pdfData["NC-COTIZACION No"] && pdfData["NC-COTIZACION No"]}/>
+                                <input type="text" name={"NOTA DE COBRANZA NO"} onChange={handleEventChange} defaultValue={pdfData["NC-COTIZACION No"] && pdfData["NC-COTIZACION No"]} />
                             </div>
                             <div>
                                 <label htmlFor="">FECHA</label>
-                                <input type="text" name={"FECHA"} onChange={handleEventChange} defaultValue={pdfData["NC-FECHA"] && pdfData["NC-FECHA"]}/>
+                                <input type="text" name={"FECHA"} onChange={handleEventChange} defaultValue={pdfData["NC-FECHA"] && pdfData["NC-FECHA"]} />
                             </div>
 
                         </div>
@@ -318,12 +318,12 @@ function CotizacionTerrestre() {
                         tarifa.map((i, index) => {
                             return (
                                 <div className={`${style.inputs}`} key={index}>
-                                    <input type="text" name={`DETALLE${index}`} onChange={handleEventChange}  placeholder="DETALLE" />
+                                    <input type="text" name={`DETALLE${index}`} onChange={handleEventChange} placeholder="DETALLE" />
                                     <input type="number" name={`COSTOUNITARIO${index}`} onChange={(e) => handlerCalc(e, index)} placeholder="COSTO UNITARIO" />
                                     <input type="number" name={`CANTIDAD${index}`} onChange={(e) => handlerCalc(e, index)} placeholder="CANTIDAD" />
-                                    <input type="text" name={`PRODUCT${index}`}  defaultValue={calc[`PRODUCT${index}`] && calc[`PRODUCT${index}`]} placeholder="COSTO TOTAL" />
-                                    <input type="number" name={`FACTURA${index}`} onChange={handleEventChange}  placeholder="FACTURA" />
-                                    <input type="number" name={`OBSERVACION${index}`} onChange={handleEventChange}  placeholder="OBSERVACION" />
+                                    <input type="text" name={`PRODUCT${index}`} defaultValue={calc[`PRODUCT${index}`] && calc[`PRODUCT${index}`]} placeholder="COSTO TOTAL" />
+                                    <input type="number" name={`FACTURA${index}`} onChange={handleEventChange} placeholder="FACTURA" />
+                                    <input type="number" name={`OBSERVACION${index}`} onChange={handleEventChange} placeholder="OBSERVACION" />
                                 </div>
                             )
                         })
@@ -370,10 +370,11 @@ function CotizacionTerrestre() {
                                 <label htmlFor="">DIRECCION</label>
                                 <input type="text" name={"DIRECCION"} onChange={handleEventChange} />
                             </div>
-                        </div>   </div>
+                        </div>
+                    </div>
                 </form>
             </div>
-    
+
 
             <InvoicePDF click={handlerPdfButton} />
 
