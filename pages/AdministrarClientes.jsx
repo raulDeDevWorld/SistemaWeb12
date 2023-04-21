@@ -353,8 +353,8 @@ const [bank, setBank] = useState(false)
                                 <input type="text" name={"DIRECCION"} onChange={handleEventChange} />
                             </div>
                         </div>
-}
                     </div>
+}
                 {success == 'save' && <Success>Correcto</Success>}
                 {success == 'repeat' && <Error>Verifica e intenta de nuevo</Error>}
             </div>
