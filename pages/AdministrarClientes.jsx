@@ -148,7 +148,16 @@ const [bank, setBank] = useState(false)
     }
 
 function saveUpdateBank () {
-       setBank(!bank)
+       let obj = {
+            banco: pdfData['AD-BANCO'] ? pdfData['AD-BANCO'] : userDB.bank["DIRECCION"] ,
+            direccionDeBanco: pdfData['AD-DIRECCION DE BANCO"'] ? pdfData['AD-DIRECCION DE BANCO"'] : userDB.bank["DIRECCION"] ,
+            condigoSWIFT: pdfData['AD-CODIGO SWIFT'] ? pdfData['AD-CODIGO SWIFT'] : userDB.bank["DIRECCION"] ,
+            cuentaEnBS: pdfData['AD-NUMERO DE CUENTA EN BS'] ? pdfData['AD-NUMERO DE CUENTA EN BS'] : userDB.bank["DIRECCION"] ,
+            cuentaEnUSD: pdfData['AD-NUMERO DE CUENTA EN USD'] ? pdfData['AD-NUMERO DE CUENTA EN USD'] : userDB.bank["DIRECCION"],
+            tipoDeCuenta: pdfData['AD-TIPO DE CUENTA'] ? pdfData['AD-TIPO DE CUENTA'] : userDB.bank["DIRECCION"],
+            nombre: pdfData['AD-NOMBRE2'] ? pdfData['AD-NOMBRE2'] : userDB.bank["DIRECCION"],
+            direction: pdfData['AD-DIRECTION'] ? pdfData['AD-DIRECTION'] : userDB.bank["DIRECCION"] 
+        }
     }
 
     useEffect(() => {
