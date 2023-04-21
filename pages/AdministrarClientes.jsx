@@ -169,10 +169,6 @@ const [bank, setBank] = useState(false)
                     <div className={style.containerButtons}>
 
                         <Button style='buttonTransparent' click={redirect}>
-                            Clientes
-                        </Button>
-
-                        <Button style='buttonTransparent' click={redirect}>
                             Datos de la empresa
                         </Button>
                     </div>
