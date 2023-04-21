@@ -269,7 +269,7 @@ const [bank, setBank] = useState(false)
                     <div className={style.formContainer}>
 
                         <form className={style.form} onSubmit={save}>
-                            <span onClick={handlerForm} className={style.x}>X</span>
+                            <span onClick={redirect} className={style.x}>X</span>
                             <div className={style.subtitle}>DATOS DE CLIENTE</div>
                             <br />
                             <div className={style.items}>
@@ -319,7 +319,7 @@ const [bank, setBank] = useState(false)
 <form className={style.form} onSubmit={saveUpdate}>
  <div className={style.subtitle}>DATOS BANCARIOS</div>
                     <br />
-<span onClick={handlerForm} className={style.x}>X</span>
+<span onClick={redirect} className={style.x}>X</span>
                     <div className={style.containerFirstItems}>
 
                         <div className={style.firstItems}>
