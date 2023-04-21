@@ -26,6 +26,8 @@ function Users() {
     const [itemSelect, setItemSelect] = useState('')
     const [rol, setRol] = useState('')
     const [filter, setFilter] = useState('')
+const [bank, setBank] = useState(false)
+
 
     const [viewForm, setViewForm] = useState(false)
 
@@ -313,7 +315,7 @@ function Users() {
 
 
 
- <div className={style.subtitle}>DATOS BANCARIOS</div>
+ { bank && <div className={style.subtitle}>DATOS BANCARIOS</div>
                     <br />
                     <div className={style.containerFirstItems}>
 
@@ -351,6 +353,7 @@ function Users() {
                                 <input type="text" name={"DIRECCION"} onChange={handleEventChange} />
                             </div>
                         </div>
+}
                     </div>
                 {success == 'save' && <Success>Correcto</Success>}
                 {success == 'repeat' && <Error>Verifica e intenta de nuevo</Error>}
