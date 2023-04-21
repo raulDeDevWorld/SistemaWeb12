@@ -233,6 +233,10 @@
 .items div :nth-child(n){
   width: 100%;
 }
+.firstItems {
+color: white;
+background-color: #294B98;
+}
 
 
 @media (max-width: 750px) {
