@@ -147,6 +147,9 @@ const [bank, setBank] = useState(false)
        setBank(!bank)
     }
 
+function saveUpdateBank () {
+       setBank(!bank)
+    }
 
     useEffect(() => {
         userDB && userDB.users[user.uid] && userDB.users[user.uid].rol !== 'Admin' && router.push('/Formularios')
@@ -312,7 +315,7 @@ const [bank, setBank] = useState(false)
 
 
  { bank && <div className={style.formContainer}>
-<form className={style.form} onSubmit={saveUpdate}>
+<form className={style.form} onSubmit={saveUpdateBank}>
  <div className={style.subtitle}>DATOS BANCARIOS</div>
                     <br />
 <span onClick={redirect} className={style.x}>X</span>
@@ -352,6 +355,9 @@ const [bank, setBank] = useState(false)
                                 <input type="text" name={"DIRECCION"} onChange={handleEventChange} defaultValue={userDB.bank && userDB.bank["DIRECCION"] && userDB.bank["DIRECCION"]}/>
                             </div>
                         </div>
+<Button style='buttonPrimary'>
+                            Datos de la empresa
+                        </Button>
                     </div>
 </form>
 </div>
